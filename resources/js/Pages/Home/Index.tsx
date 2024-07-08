@@ -18,7 +18,10 @@ const Index = () => {
         file: null,
         service: '',
         department: '',
-        priority: ''
+        priority: '',
+        location: '',
+        requested_by: '',
+        assigned_to: '',
     });
     const [selectedRequest, setSelectedRequest] = useState<Request | null>(null);
     const [viewModalOpen, setViewModalOpen] = useState(false);
@@ -71,7 +74,10 @@ const Index = () => {
                 file: null,
                 service: '',
                 department: '',
-                priority: ''
+                priority: '',
+                location: '',
+                requested_by: '',
+                assigned_to: '',
             });
             setShowModal(false);
             fetchRequests();
@@ -102,7 +108,10 @@ const Index = () => {
             file: null,
             service: request.service,
             department: request.department,
-            priority: request.priority
+            priority: request.priority,
+            location: request.location,
+            requested_by: request.requested_by,
+            assigned_to: request.assigned_to || '',
         });
         setShowEditModal(true);
     };
@@ -135,7 +144,10 @@ const Index = () => {
                 file: null,
                 service: '',
                 department: '',
-                priority: ''
+                priority: '',
+                location: '',
+                requested_by: '',
+                assigned_to: '',
             });
             setShowEditModal(false);
             fetchRequests();
@@ -446,14 +458,14 @@ const Index = () => {
                                                                 <td>{request.assigned_to}</td>
                                                                 <td><span className={`badge ${getPriorityColor(request.priority.toLowerCase())}`}>{request.priority}</span></td>
                                                                 <td className="text-center">
-                                                                    <a href="#" className="text-secondary" onClick={() => handleViewRequest(request)}>
+                                                                    <a className="text-secondary" style={{ cursor: 'pointer' }} onClick={() => handleViewRequest(request)}>
                                                                         <i className="bi bi-eye" />
                                                                     </a>
 
-                                                                    <a href="#" className="text-success ms-2" onClick={() => handleEditClick(request)}>
+                                                                    <a className="text-success ms-2" style={{ cursor: 'pointer' }} onClick={() => handleEditClick(request)}>
                                                                         <i className="bi bi-pencil" />
                                                                     </a>
-                                                                    <a href="#" className="text-danger ms-2" onClick={() => handleDeleteRequest(request)}>
+                                                                    <a href="#" className="text-danger ms-2" style={{ cursor: 'pointer' }} onClick={() => handleDeleteRequest(request)}>
                                                                         <i className="bi bi-trash" />
                                                                     </a>
                                                                 </td>
@@ -513,7 +525,7 @@ const Index = () => {
 
                 {showModal && (
                     <div className="modal fade show" style={{ display: 'block' }}>
-                        <div className="modal-dialog">
+                        <div className="modal-dialog modal-lg">
                             <div className="modal-content">
                                 <form onSubmit={handleSubmit}>
                                     <div className="modal-header">
@@ -638,6 +650,36 @@ const Index = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3">
+                                            <label className="form-label">Location</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="location"
+                                                value={requestData.location}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label">Requested By</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="requested_by"
+                                                value={requestData.requested_by}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label">Assigned To</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="assigned_to"
+                                                value={requestData.assigned_to}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div className="mb-3">
                                             <label className="form-label">Upload File</label>
                                             <input
                                                 type="file"
@@ -666,7 +708,7 @@ const Index = () => {
 
                 {showEditModal && (
                     <div className="modal fade show" style={{ display: 'block' }}>
-                        <div className="modal-dialog">
+                        <div className="modal-dialog modal-lg">
                             <div className="modal-content">
                                 <form onSubmit={handleEditSubmit}>
                                     <div className="modal-header">
@@ -788,6 +830,36 @@ const Index = () => {
                                                     <option value="MEDIUM">Medium</option>
                                                     <option value="LOW">Low</option>
                                                 </select>
+                                            </div>
+                                            <div className="mb-3 col-6">
+                                                <label className="form-label">Location</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="location"
+                                                    value={requestData.location}
+                                                    onChange={handleInputChange}
+                                                />
+                                            </div>
+                                            <div className="mb-3 col-6">
+                                                <label className="form-label">Requested By</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="requested_by"
+                                                    value={requestData.requested_by}
+                                                    onChange={handleInputChange}
+                                                />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label className="form-label">Assigned To</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="assigned_to"
+                                                    value={requestData.assigned_to}
+                                                    onChange={handleInputChange}
+                                                />
                                             </div>
                                         </div>
                                         <div className="mb-3">

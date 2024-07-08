@@ -11,7 +11,6 @@ const Header = () => {
                         <h5 className="text-white mt-2">e-hospital</h5>
                     </a>
 
-
                     <button
                         className="navbar-toggler ms-auto mx-3 me-md-0 p-0 p-sm-2 mb-1"
                         type="button"

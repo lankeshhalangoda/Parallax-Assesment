@@ -1,10 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('../src/vendor/font-awesome/css/all.min.css');
 @import url('../src/vendor/bootstrap-icons/bootstrap-icons.css');
 @import url('../src/css/style.css');
 
+* {
+    font-family: 'Encode Sans Condensed', sans-serif !important;
+}
+
+.fade {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 body {
     background-color: #efefef !important;
+
 }
 
 .custom-page-header {
@@ -86,3 +95,57 @@ tr {
 .table-head {
     height: 45px;
 }
+
+.encode-sans-condensed-thin {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-extralight {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-light {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-regular {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-medium {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-semibold {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-bold {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-extrabold {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .encode-sans-condensed-black {
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
