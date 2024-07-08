@@ -14,7 +14,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('api')->group(function () {
         Route::get('/requests', [RequestController::class, 'index']);
         Route::post('/requests', [RequestController::class, 'store']);
-        Route::put('/requests/{id}', [RequestController::class, 'update']);
+        Route::post('/requests/{id}', [RequestController::class, 'update']);
         Route::delete('/requests/{id}', [RequestController::class, 'destroy']);
     });
 
