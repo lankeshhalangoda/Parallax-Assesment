@@ -1,6 +1,20 @@
 import React from "react";
+import axios from "axios";
 
 const Header = () => {
+
+        // Handle logout function
+        const handleLogout = () => {
+            axios.post('/logout') // Make a POST request to logout endpoint
+                .then(response => {
+                    console.log(response.data); // Handle response if needed
+                    // Redirect to login page or perform other actions
+                    window.location.href = "/login"; // Example: Redirect to login page
+                })
+                .catch(error => {
+                    console.error('Logout error:', error); // Handle error if needed
+                });
+        };
     return (
         <header className="header-sticky" >
 
@@ -172,22 +186,35 @@ const Header = () => {
 
                         <li className="nav-item ms-3 dropdown">
                             <a
-                                className="avatar avatar-xs p-0"
+                                className="avatar avatar-xs p-0 dropdown-toggle"
                                 href="#"
                                 id="profileDropdown"
                                 role="button"
-                                data-bs-auto-close="outside"
-                                data-bs-display="static"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
+                                style={{ textDecoration: 'none' }} // Remove underline on hover
                             >
                                 <img
                                     className="avatar-img rounded-circle"
                                     src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg"
                                     alt="avatar"
+
                                 />
+                                <i className="ms-2" style={{ fontSize: '1.5rem' }} /> {/* Adjust icon size if needed */}
                             </a>
+                            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                <li>
+                                    <button
+                                        className="dropdown-item"
+                                        onClick={handleLogout}
+                                        style={{ cursor: 'pointer' }} // Ensure button cursor pointer
+                                    >
+                                        Logout
+                                    </button>
+                                </li>
+                            </ul>
                         </li>
+
 
                     </ul>
 
