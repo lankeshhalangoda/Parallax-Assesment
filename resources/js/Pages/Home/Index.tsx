@@ -5,8 +5,12 @@ import AppLayout from "@/Layouts/AppLayout";
 import axios from "axios";
 import { Request } from "@/../src/interfaces/Request"; // Assuming Request interface is defined in interfaces/Request.ts
 import Swal from 'sweetalert2';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
 
 const Index = () => {
+    const [showFilters, setShowFilters] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
     const [requestData, setRequestData] = useState({
@@ -308,6 +312,27 @@ const Index = () => {
         setShowEditModal(false);
     };
 
+    const generatePDF = () => {
+        const input = document.getElementById('table-container');
+        if (input) {
+            html2canvas(input, { scrollY: -window.scrollY }).then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('landscape', 'mm', 'a4');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+                pdf.save("download.pdf");
+            });
+        }
+    };
+
+    const toggleFilters = () => {
+        setShowFilters(!showFilters); // Toggle filter visibility
+    };
+
     return (
         <>
             <AppLayout title="Home">
@@ -356,76 +381,76 @@ const Index = () => {
                                 <div className="col-12">
                                     <div className="row g-3 align-items-center justify-content-between mb-3">
                                         <div className="col-md-8">
-                                            <div className="d-flex">
-                                                <div className="col-md-4">
-                                                    <div className="input-group mb-3">
-                                                        <span className="input-group-text">
-                                                            <i className="bi bi-search"></i>
-                                                        </span>
-                                                        <input
-                                                            type="text"
-                                                            className="form-control"
-                                                            placeholder="Search By"
-                                                            aria-label="Search"
-                                                            value={searchText}
-                                                            onChange={handleSearchChange}
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="ms-1">
-                                                    <div className="input-group">
-
-                                                        <DatePicker
-                                                            selected={selectedDate}
-                                                            onChange={handleDateChange}
-                                                            className="form-control"
-                                                            dateFormat="yyyy-MM-dd"
-                                                            placeholderText="Select a date"
-                                                        />
-
-                                                    </div>
-                                                </div>
-                                                <div className="ms-1">
-                                                    <select
-                                                        id="departmentSelect"
-                                                        className="form-select"
-                                                        value={selectedDepartment}
-                                                        onChange={handleDepartmentChange}
-                                                    >
-                                                        <option value="">Choose Department...</option>
-                                                        <option value="IT">IT</option>
-                                                        <option value="HR">HR</option>
-                                                    </select>
-                                                </div>
-                                                <div className="ms-1">
-                                                    <select
-                                                        id="statusSelect"
-                                                        className="form-select"
-                                                        value={selectedStatus}
-                                                        onChange={handleStatusChange}
-                                                    >
-                                                        <option value="">Choose Status...</option>
-                                                        <option value="NEW">NEW</option>
-                                                        <option value="IN_PROGRESS">IN PROGRESS</option>
-                                                        <option value="ON_HOLD">ON HOLD</option>
-                                                        <option value="REJECTED">REJECTED</option>
-                                                        <option value="CANCELLED">CANCELLED</option>
-                                                    </select>
+                                        {showFilters && (
+                                        <div className="d-flex">
+                                            <div className="col-md-4">
+                                                <div className="input-group mb-3">
+                                                    <span className="input-group-text">
+                                                        <i className="bi bi-search" />
+                                                    </span>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        placeholder="Search By"
+                                                        aria-label="Search"
+                                                        value={searchText}
+                                                        onChange={handleSearchChange}
+                                                    />
                                                 </div>
                                             </div>
+                                            <div className="ms-1">
+                                                <div className="input-group">
+                                                    <DatePicker
+                                                        selected={selectedDate}
+                                                        onChange={handleDateChange}
+                                                        className="form-control"
+                                                        dateFormat="yyyy-MM-dd"
+                                                        placeholderText="Select a date"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="ms-1">
+                                                <select
+                                                    id="departmentSelect"
+                                                    className="form-select"
+                                                    value={selectedDepartment}
+                                                    onChange={handleDepartmentChange}
+                                                >
+                                                    <option value="">Choose Department...</option>
+                                                    <option value="IT">IT</option>
+                                                    <option value="HR">HR</option>
+                                                </select>
+                                            </div>
+                                            <div className="ms-1">
+                                                <select
+                                                    id="statusSelect"
+                                                    className="form-select"
+                                                    value={selectedStatus}
+                                                    onChange={handleStatusChange}
+                                                >
+                                                    <option value="">Choose Status...</option>
+                                                    <option value="NEW">NEW</option>
+                                                    <option value="IN_PROGRESS">IN PROGRESS</option>
+                                                    <option value="ON_HOLD">ON HOLD</option>
+                                                    <option value="REJECTED">REJECTED</option>
+                                                    <option value="CANCELLED">CANCELLED</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    )}
                                         </div>
                                         <div className="col-md-3 text-end">
-                                            <button className="btn btn-dark">
-                                                <i className="bi bi-funnel" />
-                                            </button>
-                                            <button className="btn btn-dark ms-2">
-                                                <i className="bi bi-download" />
-                                            </button>
+                                        <button className="btn btn-dark"  onClick={toggleFilters}>
+                                        <i className="bi bi-funnel" />
+                                    </button>
+                                    <button className="btn btn-dark ms-2" onClick={generatePDF}>
+                                        <i className="bi bi-download" />
+                                    </button>
                                         </div>
                                     </div>
 
                                     <div className="card rounded-3">
-                                        <div className="table-responsive rounded-3">
+                                        <div id="table-container" className="table-responsive rounded-3">
                                             <table className="table table-bordered">
                                                 <thead style={{ backgroundColor: '#c19c27', border: 'transparent' }}>
                                                     <tr className="table-head">
