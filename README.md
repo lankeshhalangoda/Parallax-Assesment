@@ -101,9 +101,6 @@ Ensure you have the following installed on your machine:
 - **Database Dump:** Included in the `database` directory.
 - **Postman Collection:** Included in the `postman` directory.
 
-## Contributing
-
-If you wish to contribute to this project, please fork the repository and submit a pull request.
 
 ## License
 
