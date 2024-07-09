@@ -133,7 +133,7 @@ const Index = () => {
                 }
             }
 
-            await axios.post(`http://127.0.0.1:8000/api/requests/${selectedRequest.id}`, formData, {
+            await axios.patch(`http://127.0.0.1:8000/api/requests/${selectedRequest.id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
