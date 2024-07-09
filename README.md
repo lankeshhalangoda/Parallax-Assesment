@@ -2,7 +2,8 @@
 
 ## Introduction
 
-Welcome to the Request Management System, a full stack web application developed using Laravel 11 and React. This application allows users to manage service requests efficiently. Users can create, read, update, and delete requests through a simple and intuitive interface. Additionally, the application supports real-time updates and integrates authentication and authorization for secure access.
+Welcome to the Request Management System, a full stack web application developed using Laravel 11 and React with TypeScript (tsx). This application allows users to manage service requests efficiently. Users can create, read, update, and delete requests through a simple and intuitive interface. Additionally, the application supports real-time updates and integrates authentication and authorization for secure access.
+
 
 ## Features
 
