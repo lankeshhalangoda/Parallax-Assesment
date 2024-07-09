@@ -411,18 +411,7 @@ const Index = () => {
                                                     />
                                                 </div>
                                             </div>
-                                            <div className="ms-1">
-                                                <select
-                                                    id="departmentSelect"
-                                                    className="form-select"
-                                                    value={selectedDepartment}
-                                                    onChange={handleDepartmentChange}
-                                                >
-                                                    <option value="">Choose Department...</option>
-                                                    <option value="IT">IT</option>
-                                                    <option value="HR">HR</option>
-                                                </select>
-                                            </div>
+
                                             <div className="ms-1">
                                                 <select
                                                     id="statusSelect"
