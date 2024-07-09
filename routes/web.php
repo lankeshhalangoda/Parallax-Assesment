@@ -31,10 +31,14 @@ Route::middleware(['auth'])->group(function () {
 // The below routes are for API Testing (took out from middleware)
 
 Route::prefix('api')->group(function () {
+
     Route::get('/requests', [RequestController::class, 'index']);
+    Route::post('/requests', [RequestController::class, 'store']);
+    Route::post('/requests/{id}', [RequestController::class, 'update']);
     Route::patch('/requests/{id}', [RequestController::class, 'update']);
     Route::delete('/requests/{id}', [RequestController::class, 'destroy']);
-    Route::post('/requests', [RequestController::class, 'store']);
+
+
 });
 
 
