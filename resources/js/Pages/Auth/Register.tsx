@@ -107,7 +107,6 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
 
-                {/* Login link at the bottom center */}
                 <div className="flex justify-center mt-4">
                     <div className="text-sm text-center">
                         <p className="text-gray-600">Already have an account?

@@ -6,7 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import styles from '../../../css/Login.module.css'; // Import CSS module styles
+import styles from '../../../css/Login.module.css';
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -84,7 +84,6 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                     </PrimaryButton>
                 </div>
 
-                {/* Registration link at the bottom center */}
                 <div className="flex justify-center mt-4">
                     <div className="text-sm text-center">
                         <p className="text-gray-600">Don't have an account?
