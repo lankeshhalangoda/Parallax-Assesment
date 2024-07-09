@@ -35,7 +35,7 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository to your local machine:
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/lankeshhalangoda/Parallax-Request-Management-System.git
     cd request-management-system
     ```
 
