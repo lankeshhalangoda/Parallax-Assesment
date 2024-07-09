@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AppLayout from "@/Layouts/AppLayout";
 import axios from "axios";
-import { Request } from "@/../src/interfaces/Request"; // Assuming Request interface is defined in interfaces/Request.ts
+import { Request } from "@/../src/interfaces/Request";
 import Swal from 'sweetalert2';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -252,7 +252,9 @@ const Index = () => {
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'Cancel'
+            confirmButtonColor: '#830823',
+            cancelButtonText: 'Cancel',
+            iconColor: '#830823',
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
@@ -330,11 +332,11 @@ const Index = () => {
     };
 
     const toggleFilters = () => {
-        setShowFilters(!showFilters); // Toggle filter visibility
+        setShowFilters(!showFilters);
     };
 
     return (
-        <>
+
             <AppLayout title="Home">
                 <section className="custom-page-header">
                     <div className="container-fluid vstack gap-4">
@@ -938,7 +940,7 @@ const Index = () => {
                     </div>
                 )}
             </AppLayout>
-        </>
+
     );
 };
 

@@ -1,5 +1,3 @@
-// interfaces/Request.ts
-
 export interface Request {
     id: number;
     location: string;
