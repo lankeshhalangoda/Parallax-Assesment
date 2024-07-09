@@ -633,32 +633,25 @@ const Index = () => {
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Service</label>
-                                            <select
-                                                className="form-select"
+                                            <input
+                                                type="text"
+                                                className="form-control"
                                                 name="service"
                                                 value={requestData.service}
                                                 onChange={handleInputChange}
-                                            >
-                                                <option value="">Choose Service...</option>
-                                                <option value="Service A">Service A</option>
-                                                <option value="Service B">Service B</option>
-                                                <option value="Service C">Service C</option>
-                                            </select>
+                                            />
                                         </div>
                                         <div className="row">
-                                            <div className="mb-3 col-6">
-                                                <label className="form-label">Department</label>
-                                                <select
-                                                    className="form-select"
-                                                    name="department"
-                                                    value={requestData.department}
-                                                    onChange={handleInputChange}
-                                                >
-                                                    <option value="">Choose Department...</option>
-                                                    <option value="IT">IT</option>
-                                                    <option value="HR">HR</option>
-                                                </select>
-                                            </div>
+                                        <div className="mb-3 col-6">
+                                            <label className="form-label">Department</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="department"
+                                                value={requestData.department}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
                                             <div className="mb-3 col-6">
                                                 <label className="form-label">Priority</label>
                                                 <select
@@ -816,32 +809,25 @@ const Index = () => {
                                         </div>
                                         <div className="mb-3">
                                             <label className="form-label">Service</label>
-                                            <select
-                                                className="form-select"
+                                            <input
+                                                type="text"
+                                                className="form-control"
                                                 name="service"
                                                 value={requestData.service}
                                                 onChange={handleInputChange}
-                                            >
-                                                <option value="">Choose Service...</option>
-                                                <option value="Service A">Service A</option>
-                                                <option value="Service B">Service B</option>
-                                                <option value="Service C">Service C</option>
-                                            </select>
+                                            />
                                         </div>
                                         <div className="row">
-                                            <div className="mb-3 col-6">
-                                                <label className="form-label">Department</label>
-                                                <select
-                                                    className="form-select"
-                                                    name="department"
-                                                    value={requestData.department}
-                                                    onChange={handleInputChange}
-                                                >
-                                                    <option value="">Choose Department...</option>
-                                                    <option value="IT">IT</option>
-                                                    <option value="HR">HR</option>
-                                                </select>
-                                            </div>
+                                        <div className="mb-3 col-6">
+                                            <label className="form-label">Department</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="department"
+                                                value={requestData.department}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
                                             <div className="mb-3 col-6">
                                                 <label className="form-label">Priority</label>
                                                 <select

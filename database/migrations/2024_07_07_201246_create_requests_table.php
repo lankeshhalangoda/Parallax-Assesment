@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('location')->nullable();
-            $table->enum('service', ['Service A', 'Service B', 'Service C'])->nullable();
-            $table->enum('department', ['IT', 'HR'])->nullable();
+            $table->string('service')->nullable();
+            $table->string('department')->nullable();
             $table->enum('status', ['NEW', 'IN_PROGRESS', 'ON_HOLD', 'REJECTED', 'CANCELLED'])->default('NEW');
             $table->enum('priority', ['HIGH', 'MEDIUM', 'LOW'])->default('MEDIUM');
             $table->enum('floor', ['1', '2', '3', '4', '5'])->nullable();
