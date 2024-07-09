@@ -97,7 +97,7 @@ Ensure you have the following installed on your machine:
 
 ## Additional Information
 
-- **Demo Video:** [Link to demo video](#)
+- **Demo Video:** [Link to demo video](https://youtu.be/NxwpB_Mk-Lo?feature=shared)
 - **Database Dump:** Included in the `database` directory.
 - **Postman Collection:** Included in the `postman` directory.
 
