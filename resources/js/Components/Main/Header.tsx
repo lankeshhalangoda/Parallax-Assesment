@@ -2,19 +2,17 @@ import React from "react";
 import axios from "axios";
 
 const Header = () => {
-
-        // Handle logout function
         const handleLogout = () => {
-            axios.post('/logout') // Make a POST request to logout endpoint
+            axios.post('/logout')
                 .then(response => {
-                    console.log(response.data); // Handle response if needed
-                    // Redirect to login page or perform other actions
-                    window.location.href = "/login"; // Example: Redirect to login page
+                    console.log(response.data);
+                    window.location.href = "/login";
                 })
                 .catch(error => {
-                    console.error('Logout error:', error); // Handle error if needed
+                    console.error('Logout error:', error);
                 });
         };
+
     return (
         <header className="header-sticky" >
 
@@ -192,7 +190,7 @@ const Header = () => {
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
-                                style={{ textDecoration: 'none' }} // Remove underline on hover
+                                style={{ textDecoration: 'none' }}
                             >
                                 <img
                                     className="avatar-img rounded-circle"
@@ -200,14 +198,14 @@ const Header = () => {
                                     alt="avatar"
 
                                 />
-                                <i className="ms-2" style={{ fontSize: '1.5rem' }} /> {/* Adjust icon size if needed */}
+                                <i className="ms-2" style={{ fontSize: '1.5rem' }} />
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                                 <li>
                                     <button
                                         className="dropdown-item"
                                         onClick={handleLogout}
-                                        style={{ cursor: 'pointer' }} // Ensure button cursor pointer
+                                        style={{ cursor: 'pointer' }}
                                     >
                                         Logout
                                     </button>

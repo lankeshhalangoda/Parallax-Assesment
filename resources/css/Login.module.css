@@ -1,0 +1,68 @@
+.loginForm {
+    max-width: 500px;
+    margin: auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inputField {
+    margin-bottom: 1rem;
+}
+
+.inputLabel {
+    font-size: 0.875rem;
+    color: #555;
+}
+
+.textInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.inputError {
+    color: red;
+    font-size: 0.875rem;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+}
+
+.rememberMeCheckbox {
+    margin-right: 0.5rem;
+}
+
+.rememberMeLabel {
+    font-size: 0.875rem;
+    color: #555;
+}
+
+.submitButton {
+    background: #f30;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submitButton:hover {
+    background: #e20;
+}
+
+.forgotPassword {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-right: 1rem;
+}
+
+.forgotPassword:hover {
+    text-decoration: underline;
+}

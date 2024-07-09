@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import styles from '../../../css/Login.module.css'; // Import CSS module styles
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -22,7 +23,6 @@ export default function Login({ status, canResetPassword }: { status?: string, c
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-
         post(route('login'));
     };
 
@@ -30,67 +30,71 @@ export default function Login({ status, canResetPassword }: { status?: string, c
         <GuestLayout>
             <Head title="Log in" />
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4 text-center">Request Management System</h2>
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+            <form onSubmit={submit} className={styles.loginForm}>
+                <div className={styles.inputField}>
+                    <InputLabel htmlFor="email" value="Email" className={styles.inputLabel} />
 
                     <TextInput
                         id="email"
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className={`${styles.textInput} mt-1 block w-full`}
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData('email', e.target.value)}
                     />
 
-                    <InputError message={errors.email} className="mt-2" />
+                    <InputError message={errors.email} className={styles.inputError} />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                <div className={styles.inputField}>
+                    <InputLabel htmlFor="password" value="Password" className={styles.inputLabel} />
 
                     <TextInput
                         id="password"
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className={`${styles.textInput} mt-1 block w-full`}
                         autoComplete="current-password"
                         onChange={(e) => setData('password', e.target.value)}
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    <InputError message={errors.password} className={styles.inputError} />
                 </div>
 
-                <div className="block mt-4">
+                <div className={`${styles.rememberMe} block mt-4`}>
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
                             checked={data.remember}
                             onChange={(e) => setData('remember', e.target.checked)}
+                            className={styles.rememberMeCheckbox}
                         />
-                        <span className="ms-2 text-sm text-gray-600">Remember me</span>
+                        <span className={styles.rememberMeLabel}>Remember me</span>
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                <div className="flex items-center justify-center mt-4">
+                    <PrimaryButton className={styles.submitButton} disabled={processing}>
                         Log in
                     </PrimaryButton>
                 </div>
+
+                {/* Registration link at the bottom center */}
+                <div className="flex justify-center mt-4">
+                    <div className="text-sm text-center">
+                        <p className="text-gray-600">Don't have an account?
+                        <Link href={route('register')} className="text-black">
+                            &nbsp;<u>Register</u>
+                        </Link></p>
+                    </div>
+                </div>
+
+
             </form>
         </GuestLayout>
     );
